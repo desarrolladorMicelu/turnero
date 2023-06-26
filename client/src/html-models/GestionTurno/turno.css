@@ -1,0 +1,78 @@
+
+
+.titulop {
+    font-size: 35px;
+    font-weight: bold;
+    
+  }
+  
+  .titulos {
+    font-size: 28px;
+    
+    
+  }
+  
+  
+  body {
+  
+     
+      background-color: #BBC7D6;
+      
+      
+  
+    }
+  
+  
+    .panel {
+      
+      
+      background-color: #D0D3D4 ;
+   }
+  
+  
+   .boton {
+      position: relative;
+      color: white;
+      background: linear-gradient(to  left , #F19C49 85%, #2d2f33 15% );
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      border: none;
+      padding: 10px 20px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  
+  
+  
+      .parte1 {
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translate(-50%, -50%);
+      }
+      
+     
+         
+  
+   }
+  
+   .boton1 {
+    color: white;
+    background:  #F19C49 ;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+       
+  
+  }
+  
+  .boton1:active {
+    transform: scale(0.9);
+  }
+  
+  .dato1{
+ 
+    font-weight: bold;
+
+  }

@@ -1,0 +1,45 @@
+
+  body {
+  
+     
+      background-color: #BBC7D6;
+      
+  
+    }
+  
+    #content h3 {
+      
+      font-weight:bold;
+      font-size:2em;
+      font-family: "Poppins", Poppins-Bold;
+     
+      
+    }
+  
+    .panel {
+      
+      
+      background-color: #D0D3D4 ;
+   }
+  
+  
+   .boton1 {
+    color: white;
+    background:  #F19C49 ;
+    border-top-right-radius: 4vw;
+    border-bottom-right-radius: 4vw;
+    border: none;
+    padding: 1vw 2vw;
+    box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
+  
+  
+   }
+
+.errorVacio{
+  border-color: rgb(299, 62, 62);
+}
+.mensajeError{
+  color: rgb(299, 62, 62);
+}
+  
+  

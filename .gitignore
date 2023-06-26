@@ -1,0 +1,21 @@
+# Ignorar la carpeta node_modules
+client/node_modules/
+api/node_modules/
+
+# Ignorar los archivos de registro y caché de npm
+npm-debug.log*
+package-lock.json
+
+# Ignorar las claves privadas
+*.key
+*.pem
+
+# Ignorar archivos compilados y temporalmente generados
+dist/
+build/
+*.pyc
+
+# Ignorar archivos sensibles a la configuración
+.env
+config.js
+config.json

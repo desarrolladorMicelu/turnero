@@ -1,0 +1,75 @@
+.panelp {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .clientep {
+    margin-right: 25px; /* Espacio */
+    width: 305px; 
+    height: 150px; 
+    background-color: rgb(252, 252, 252);
+    text-align: left;
+    border-radius: 13px;
+    display: inline-block;
+    overflow: auto;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+
+
+  }
+  
+
+  
+.titulop {
+    font-size: 35px;
+    font-weight: bold;
+    
+  }
+  
+  .datos1 {
+    font-size: 20px;
+  
+    
+  }
+  
+  
+  body {
+  
+     background-color: #BBC7D6;
+    }
+
+
+
+   .panel1{
+    background-color: #ffffff;
+    border: black;
+    height: 50px; 
+
+}
+
+
+    .boton1 {
+        color: white;
+        background:  #F19C49 ;
+        border-radius: 7px;
+        border: black;
+        padding: 10px 20px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        width:  125px; 
+        height: 45px;
+        cursor: pointer;
+        float: right;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        
+
+    }
+ 
+    .boton1:active {
+      transform: scale(0.9);
+    }
+    
+
+    
