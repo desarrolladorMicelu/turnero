@@ -12,7 +12,7 @@ import axios from 'axios';
 import './App.css';
 import { Route, Routes} from 'react-router-dom';
 
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.baseURL = 'turnero-production.up.railway.app';
 
 function App() {
   // const {pathname} = useLocation();
