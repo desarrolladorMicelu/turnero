@@ -4,7 +4,7 @@ import style from './login.module.css';
 import {useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {inicioSesion} from "../../redux/actions";
-import {verificarToken} from "../../redux/actions";
+import {verificarToken, getAllEmpleados} from "../../redux/actions";
 
 
 const Login = () => {
@@ -13,8 +13,13 @@ const Login = () => {
   const [faltaNombre, setFaltaNombre] = useState(false);
   const [faltaContrasena, setFaltaContrasena] = useState(false);
   const [infoIncorrecta, setInfoIncorrecta] = useState(false);
+  
+
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getAllEmpleados());
     localStorage.clear();
   }, []);
 
@@ -27,9 +32,6 @@ const Login = () => {
     }
   } 
 
-
-  const navigate = useNavigate(); 
-  const dispatch = useDispatch();
 
 
 
