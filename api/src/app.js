@@ -23,7 +23,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use(cors({ origin: "https://turnero-o1b6.vercel.app" }));
+server.use(cors());
 
 server.use('/', routes);
 
