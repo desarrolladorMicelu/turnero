@@ -1,5 +1,6 @@
 const {Empleado} = require('../../db');
 const bcrypt = require('bcryptjs'); 
+const postAdmin = require('./postAdmin');
 
 const getAllEmpleados = async () => {
 
@@ -8,16 +9,12 @@ const getAllEmpleados = async () => {
     });
     
     if(!admin){
-        const passwordhash = bcrypt.hashSync("micelu2023", parseInt(10));
-        const empleado = await Empleado.create({
-            nombre: "admin1",
-            sede:"Medellin",
-            password: passwordhash,
-            isAdmin:true
-        })
+        console.log('hola');
+
+        const primerAdmin = await postAdmin('admin1', 'Medellin', 1234);
 
 
-        return empleado;
+        return primerAdmin;
     }
     else{
         const empleados = await Empleado.findAll({
