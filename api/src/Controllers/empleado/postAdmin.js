@@ -2,7 +2,7 @@ const {Empleado} = require('../../db');
 const bcrypt = require('bcryptjs'); 
 
 
-const postTienda = async(nombre, sede, password)=>{
+const postAdmin = async(nombre, sede, password)=>{
 
     const passwordhash = bcrypt.hashSync(password, parseInt(10));
     
@@ -12,4 +12,4 @@ const postTienda = async(nombre, sede, password)=>{
 
 }
 
-module.exports = postTienda;
+module.exports = postAdmin;
