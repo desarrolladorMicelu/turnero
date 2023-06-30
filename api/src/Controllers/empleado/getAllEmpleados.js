@@ -9,7 +9,7 @@ const getAllEmpleados = async () => {
     });
     console.log(admin);
     
-    if(!admin){
+    if(!admin.length){
         console.log('Entra en admin');
 
         const primerAdmin = await postAdmin('admin1', 'Medellin', 1234);
