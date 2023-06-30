@@ -9,17 +9,15 @@ const getAllEmpleados = async () => {
     
     if(!admin){
         const passwordhash = bcrypt.hashSync("micelu2023", parseInt(10));
-        await Empleado.create({
+        const empleado = await Empleado.create({
             nombre: "admin1",
             sede:"Medellin",
             password: passwordhash,
             isAdmin:true
         })
 
-        return await Empleado.findAll({
-            where: {isAdmin: true}
-        });;
 
+        return empleado;
     }
     else{
         const empleados = await Empleado.findAll({
