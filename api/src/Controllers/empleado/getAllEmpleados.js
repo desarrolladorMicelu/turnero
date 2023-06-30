@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const postAdmin = require('./postAdmin');
 
 const getAllEmpleados = async () => {
-
+    console.log('hola');
     const admin = await Empleado.findAll({
         where: {isAdmin: true}
     });
