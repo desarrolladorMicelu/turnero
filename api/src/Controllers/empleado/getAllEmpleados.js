@@ -7,6 +7,7 @@ const getAllEmpleados = async () => {
     const admin = await Empleado.findAll({
         where: {isAdmin: true}
     });
+    console.log(admin);
     
     if(!admin){
         console.log('Entra en admin');
