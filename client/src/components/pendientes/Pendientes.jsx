@@ -13,15 +13,16 @@ const Pendientes = () => {
   const [atendiendo, setAtendiendo] = useState(false);
   const [sede, setSede] = useState('');
   const navigate = useNavigate();
-
+  const [pendientes, setPendientes ] = useState([]); 
   
 
-  const pendientes = useSelector(state=>state.pendientes).filter(turno=>turno.sede===sede);
   const dispatch = useDispatch();
 
 
   useEffect(()=>{
-    dispatch(getPendientes());
+
+    
+    
 
     const verificacion = async()=>{
       const tokenData = await dispatch(verificarToken(localStorage.getItem('token')));
@@ -34,9 +35,18 @@ const Pendientes = () => {
         }
 
     }
+
+    const publicacion = async()=>{
+      const pendientes = await getPendientes()();
+      setPendientes(pendientes);
+    }
+
     verificacion();
+    publicacion();
     
   }, [dispatch, atendiendo]);
+
+  
 
   return (
     <section>

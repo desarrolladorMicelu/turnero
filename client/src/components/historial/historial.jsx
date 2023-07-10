@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import style from './historial.module.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
-import { getAtendidos, getPendientes, getAllSedes, getAllEmpleados, verificarToken } from '../../redux/actions';
+import { getAtendidos, getPendientes, getAllSedes, getAllEmpleados, verificarToken, getAllTurnos } from '../../redux/actions';
 import { Select, Box, Input } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,19 +19,25 @@ const Historial = () => {
   const [selectedSede, setSelectedSede] = useState('');
   const [empleadoSelected, setEmpleadoSelected] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
-
-  const atendidos = useSelector(state=>state.atendidos);
-  const pendientes = useSelector(state=>state.pendientes);
+  const [turnos, setTurnos] = useState([]);
+  const [atendidos, setAtendidos] = useState([]);
+  const [pendientes, setPendientes] = useState([]);
 
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(()=>{
-    dispatch(getAtendidos());
-    dispatch(getPendientes());
+    
 
     const fetchSedes = async () => {
+      const traerTurnos = await getAllTurnos()();
+      const atendidosDispatch = await getAtendidos()();
+      const pendientesDispatch = await getPendientes()();
+      setTurnos(traerTurnos);
+
+      setAtendidos(atendidosDispatch);
+      setPendientes(pendientesDispatch);
       try {
         const sedesData = await getAllSedes()();
         setSedes(sedesData);
@@ -90,8 +96,7 @@ const Historial = () => {
   }
 
   const turnosRenderizados = ()=>{
-    const listaTurnos = atendidos.concat(pendientes);
-
+    const listaTurnos = turnos;
     let filtros = listaTurnos;
 
     if(atendidosSelect === 'atendidos'){
@@ -202,12 +207,12 @@ const Historial = () => {
               <tr key={index}>
               <td>{fila.sede}</td>
               <td>{fila.cliente}</td>
-              <td>{fila.empleado}</td>
+              <td>{fila.empleado!=='null'?fila.empleado:'Sin atender'}</td>
               <td>{fila.razon}</td>
               <td>{formateoFecha(fila.tiempoEntrada)}</td>
               <td>{formateoFecha(fila.tiempoAtencion)}</td>
               <td>{formateoFecha(fila.tiempoSalida)}</td>
-              <td>{fila.habeasData}</td>
+              <td>Términos aceptados</td>
             </tr>
             ))}
 

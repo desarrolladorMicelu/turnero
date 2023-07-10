@@ -1,6 +1,7 @@
 const {Turno, Empleado} = require('../../db');
 
 const putTurno = async(tiempoAtencion, tiempoSalida, id, empleado)=>{
+    console.log(empleado);
     let turnoActualizado = {};
     if(!tiempoAtencion){
         turnoActualizado = await Turno.update(
@@ -19,7 +20,7 @@ const putTurno = async(tiempoAtencion, tiempoSalida, id, empleado)=>{
         const turno = await Turno.findByPk(id);
         const empleado1 = await Empleado.findByPk(empleado);
 
-        await turno.setEmpleado(empleado1) 
+        await turno.setEmpleado(empleado1);
     }
 
     return turnoActualizado;

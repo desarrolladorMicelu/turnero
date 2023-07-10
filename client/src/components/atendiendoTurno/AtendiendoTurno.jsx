@@ -5,6 +5,7 @@ import {useLocation} from 'react-router-dom';
 import {putTurno, verificarToken} from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 const AtendiendoTurno = () => {
 
   const dispatch = useDispatch();
@@ -32,10 +33,13 @@ const AtendiendoTurno = () => {
   
   
 
-  const handleFinalizacionTurno = ()=>{
+  const handleFinalizacionTurno = async()=>{
     const tiempoSalida = new Date();
-    const empleado = localStorage.getItem('empleado');
-    dispatch(putTurno(id, undefined, tiempoSalida, empleado));
+    const tokenData = await dispatch(verificarToken(localStorage.getItem('token')));
+
+
+
+    await dispatch(putTurno(id, undefined, tiempoSalida, tokenData.info.id));
     navigate("/pendientes");
   }
   return (

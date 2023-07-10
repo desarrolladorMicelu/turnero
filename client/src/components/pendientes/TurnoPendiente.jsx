@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import style from './pendientes.module.css';
 import {useNavigate} from 'react-router-dom';
-import {putTurno} from '../../redux/actions';
+import {putTurno, verificarToken} from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 
 const TurnoPendiente = ({id, nombre, razon, celular}) => {
@@ -10,14 +10,13 @@ const TurnoPendiente = ({id, nombre, razon, celular}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch(); 
   
-  const handleAtender = ()=>{
+  const handleAtender = async()=>{
 
     
 
     const hora = new Date();
-    const empleado = localStorage.getItem('empleado');
-
-    dispatch(putTurno(id, hora, undefined, empleado));
+    const tokenData = await dispatch(verificarToken(localStorage.getItem('token')));
+    dispatch(putTurno(id, hora, undefined, tokenData.info.id));
 
     navigate("/atendiendo", {
       state: {

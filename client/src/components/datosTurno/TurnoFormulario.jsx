@@ -4,13 +4,14 @@ import { useNavigate} from 'react-router-dom';
 import style from './formulario.module.css'
 import { postTurno, verificarToken } from '../../redux/actions';
 import {useDispatch} from 'react-redux';
+import { useToast} from '@chakra-ui/react'
 
 function TurnoFormulario() {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [celular, setCelular] = useState(0);
   const [habeasData, SetHabeasData] = useState(false);
-
+  const toast = useToast();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -54,7 +55,13 @@ function TurnoFormulario() {
     const sede = localStorage.getItem('sede');
 
     dispatch(postTurno(motivo, tiempoEntrada, sede, celular, nombre, apellido))
-    
+    toast({
+      title: `Se te ha asignado el turno`,
+      description: `En un momento te atenderán`,
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    });
     
 
     navigate('/tipoTurno');

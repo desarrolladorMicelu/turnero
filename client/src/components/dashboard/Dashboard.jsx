@@ -43,7 +43,11 @@ import {  Tabs,
   AlertIcon,
   AlertTitle,
   AlertDescription
+  
 } from '@chakra-ui/react'
+
+
+import {EditIcon} from '@chakra-ui/icons'
 
 import {getEmpleadosDashboard} from '../../redux/actions';
 import { useDispatch } from 'react-redux';
@@ -51,6 +55,7 @@ import {putEmpleado, getAllSedes, postEmpleado, verificarToken} from '../../redu
 import Sedes from './Sedes';
 import Nav from '../navBar/Nav';
 import {useNavigate} from 'react-router-dom';
+import PopoverForm from './PopOver';
 
 
 const Dashboard = () => {
@@ -93,11 +98,7 @@ const Dashboard = () => {
         }
         else{
           setIsAdmin(tokenData.info.admin);
-        }
-
-        
-
-        
+        }     
 
       } catch (error) {
         console.error('Error al obtener las sedes:', error);
@@ -173,13 +174,14 @@ const Dashboard = () => {
                     Añadir nuevo empleado
           </Button>
           <TableContainer className={style.tabla}>
-            <Table variant='striped'>
+            <Table variant='striped' mb='5vh'>
               <Thead>
                 <Tr>
                   <Th textAlign='center'>Nombre</Th>
                   <Th textAlign='center'>Sede</Th>
                   <Th textAlign='center'>Jefe de tienda</Th>
                   <Th textAlign='center'>Admin</Th>
+                  <Th textAlign='center'>Editar</Th>
                 </Tr>
               </Thead>
               <Tbody>
@@ -189,6 +191,7 @@ const Dashboard = () => {
                     <Td textAlign='center'>{empleado.sede}</Td>
                     <Td textAlign='center'><Switch size='md' defaultChecked={empleado.jefeTienda} onChange={(event)=>{handleCambioCargo(event, empleado.nombre, empleado.id, 'jefeTienda')}}/></Td>
                     <Td textAlign='center'><Switch size='md' defaultChecked={empleado.isAdmin} onChange={(event)=>{handleCambioCargo(event, empleado.nombre, empleado.id, 'isAdmin')}}/></Td>
+                    <Td textAlign='center'><PopoverForm name={empleado.nombre} id={empleado.id}/></Td>
                   </Tr>
 
                 ))}
@@ -262,6 +265,8 @@ const Dashboard = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+
+      
 
       <Nav admin={isAdmin}></Nav>
     </section>  

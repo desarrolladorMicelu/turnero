@@ -3,14 +3,11 @@ const bcrypt = require('bcryptjs');
 const postAdmin = require('./postAdmin');
 
 const getAllEmpleados = async () => {
-    console.log('hola');
     const admin = await Empleado.findAll({
         where: {isAdmin: true}
     });
-    console.log(admin);
     
     if(!admin.length){
-        console.log('Entra en admin');
 
         const primerAdmin = await postAdmin('admin1', 'Medellin', "1234");
 
@@ -18,7 +15,6 @@ const getAllEmpleados = async () => {
         return primerAdmin;
     }
     else{
-        console.log('Entra en else');
         const empleados = await Empleado.findAll({
             where: {isSede:false, isAdmin: false}
         });

@@ -14,9 +14,18 @@ export const postTurno = (razon, tiempoEntrada, sede, celular, nombre, apellido)
     }
 }
 
+export const getAllTurnos = () =>{
+    return async (dispatch) =>{
+        const turnos = await axios.get('/turno');
+        return turnos.data
+    }
+}
+
+
 export const getPendientes = () => {
-    return function(dispatch){
-        axios.get('/turno/pendientes').then(response=>dispatch({type:GET_PENDIENTES, payload:response.data}));
+    return async(dispatch)=>{
+        const turnosPendientes = await axios.get('/turno/pendientes');
+        return turnosPendientes.data
     }
 }
 
@@ -58,8 +67,9 @@ export const verificarToken = (token) =>{
 
 
 export const getAtendidos = () => {
-    return function(dispatch){
-        axios.get('/turno/atendidos').then(response=>dispatch({type:GET_ATENDIDOS, payload:response.data}));
+    return async(dispatch)=>{
+        const turnosAtendidos = await axios.get('/turno/atendidos');
+        return turnosAtendidos.data;
     }
 }
 
@@ -92,6 +102,22 @@ export const putEmpleado = (id, propiedad, valor) =>{
             response = await axios.put(
                 `/empleado`,
                 {id:id, propiedad:propiedad, valor:valor}
+            );
+
+        }catch(error){
+            return {error:error.message};
+        }
+        
+        return response.data
+    }
+}
+export const putContrasenaEmpleado = (id, nombre, password) =>{
+    return async (dispatch) => {
+        let response;
+        try{
+            response = await axios.put(
+                `/empleado/actualizacion`,
+                {id:id, nombre:nombre, password:password}
             );
 
         }catch(error){
