@@ -22,6 +22,7 @@ const Historial = () => {
   const [turnos, setTurnos] = useState([]);
   const [atendidos, setAtendidos] = useState([]);
   const [pendientes, setPendientes] = useState([]);
+  const [sedeActual, setSedeActual] = useState('');
 
 
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const Historial = () => {
         }
         else{
           setIsAdmin(tokenData.info.admin);
+          setSedeActual(tokenData.info.sede);
         }
 
         
@@ -98,6 +100,10 @@ const Historial = () => {
   const turnosRenderizados = ()=>{
     const listaTurnos = turnos;
     let filtros = listaTurnos;
+
+    if(isAdmin===false){
+      filtros = filtros.filter(turno=>turno.sede===sedeActual)
+    }
 
     if(atendidosSelect === 'atendidos'){
       filtros = filtros.filter(turno => turno.atendido === true);
@@ -158,9 +164,11 @@ const Historial = () => {
             <option value='atendidos'>Atendidos</option>
             <option value='noAtendidos'>No atendidos</option>
           </Select>
-          <Select onChange={handlerSede} variant='filled' placeholder='Sede' w='10vw' marginRight='3vw'>
+          {isAdmin && <Select onChange={handlerSede} variant='filled' placeholder='Sede' w='10vw' marginRight='3vw'>
             {sedes.map((sede)=>(<option key={sede.id} value={sede.nombre} id={sede.id}>{sede.nombre}</option>))}
           </Select>
+          }
+          
           <Select onChange={handlerEmpleado} variant='filled' placeholder='Asesor' w='10vw' marginRight='3vw'>
             {empleados.map((empleado)=>(<option key={empleado.id} value={empleado.nombre} id={empleado.id}>{empleado.nombre}</option>))}
           </Select>

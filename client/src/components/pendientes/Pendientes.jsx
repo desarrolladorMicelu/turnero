@@ -6,6 +6,7 @@ import { getPendientes, verificarToken } from '../../redux/actions';
 import TurnoPendiente from './TurnoPendiente';
 import { Button, Box, ButtonGroup } from "@chakra-ui/react";
 import {useNavigate} from 'react-router-dom';
+import Nav from '../navBar/Nav';
 
 
 const Pendientes = () => {
@@ -13,7 +14,8 @@ const Pendientes = () => {
   const [atendiendo, setAtendiendo] = useState(false);
   const [sede, setSede] = useState('');
   const navigate = useNavigate();
-  const [pendientes, setPendientes ] = useState([]); 
+  const [pendientes, setPendientes ] = useState([]);
+  const [jefe, setJefe] = useState(false);
   
 
   const dispatch = useDispatch();
@@ -31,14 +33,17 @@ const Pendientes = () => {
         }
         else{
           setSede(tokenData.info.sede);
-
+          setJefe(tokenData.info.jefeTienda);
         }
+
+      
 
     }
 
     const publicacion = async()=>{
       const pendientes = await getPendientes()();
-      setPendientes(pendientes);
+      const pendientesSede = pendientes.filter(turno=>turno.sede===sede);
+      setPendientes(pendientesSede);
     }
 
     verificacion();
@@ -85,6 +90,7 @@ const Pendientes = () => {
           
         
       </div>
+      <Nav></Nav>
     </section>
   );
 };

@@ -15,6 +15,10 @@ const Nav = ({admin}) =>{
     navigate('/historial');
   }
 
+  const redirectAtender = () => {
+    navigate('/pendientes');
+  }
+
 
   return(
   <div  className={`card shadow  ${style.footer}`} >
@@ -27,7 +31,7 @@ const Nav = ({admin}) =>{
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           {!admin && <li className="nav-item">
-              <button className="nav-link">Atender</button>
+              <button className="nav-link" onClick={redirectAtender}>Atender</button>
           </li>}
           <li className="nav-item">
             <button onClick={redirectHistorial} className="nav-link">Historial</button>
