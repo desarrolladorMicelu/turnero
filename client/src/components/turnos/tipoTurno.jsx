@@ -45,30 +45,30 @@ const TipoTurno = () => {
         <div className="mb-2 row">
           <div className="col"></div>
           <button id ="botton" className={` ${styles.boton} col-8 btn  btn-lg justify-content-between `}
-            onClick={()=>{redirectDatos("GARANTIA")}}
+            onClick={()=>{redirectDatos("CREDITO")}}
           >
               <span className={`${styles.parte1}`}>  2 </span>
-              <span> GARANTÍA </span>
+              <span> CRÉDITO </span>
           </button>
       </div>  
 
       <div className="mb-2">
         
           <button id ="botton" className={`${styles.boton} col-8 btn  btn-lg justify-content-between `}
-            onClick={()=>{redirectDatos("SERVICIO TECNICO")}}
+            onClick={()=>{redirectDatos("GARANTIA")}}
           >
               <span className={`${styles.parte1}`}>  3 </span>
-              <span > SERVICIO TÉCNICO </span>
+              <span > GARANTÍA </span>
           </button>
       </div> 
 
       <div className="mb-2 row">
         <div className="col"></div>
         <button id ="botton" className={`${styles.boton} col-8 btn  btn-lg justify-content-between `}
-            onClick={()=>{redirectDatos("CREDITO")}}
+            onClick={()=>{redirectDatos("SERVICIO TECNICO")}}
           >
             <span className={`${styles.parte1}`}>  4 </span>
-            <span> CRÉDITO </span>
+            <span> SERVICIO TÉCNICO </span>
         </button>
     </div>  
 

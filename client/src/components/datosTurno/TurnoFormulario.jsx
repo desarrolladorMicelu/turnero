@@ -4,7 +4,7 @@ import { useNavigate} from 'react-router-dom';
 import style from './formulario.module.css'
 import { postTurno, verificarToken } from '../../redux/actions';
 import {useDispatch} from 'react-redux';
-import { useToast} from '@chakra-ui/react'
+import { useToast, Box, Button} from '@chakra-ui/react'
 
 function TurnoFormulario() {
   const [nombre, setNombre] = useState('');
@@ -71,6 +71,7 @@ function TurnoFormulario() {
 
   
   return (
+    <Box>
     <section className="d-flex justify-content-center align-items-center">
       <div className={`${style.panel} card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4 p-4`}>
         <div className="mb-4 d-flex justify-content-start align-items-center">
@@ -154,7 +155,15 @@ function TurnoFormulario() {
           </form>
         </div>
       </div>
+
+      
     </section>
+
+    <Button w='10vw' ml='45vw' mt='7vh' onClick={()=>{navigate('/tipoTurno');}}>Cancelar turno</Button>
+    
+    </Box>
+
+
   );
 }
 
