@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
+      isTV: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+      }
 
       },
       {

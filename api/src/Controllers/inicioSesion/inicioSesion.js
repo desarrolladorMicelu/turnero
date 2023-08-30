@@ -16,6 +16,7 @@ const inicioSesion = async(nombre, password)=>{
             admin:empleado.isAdmin,
             jefeTienda: empleado.jefeTienda,
             isSede: empleado.isSede,
+            isTV: empleado.isTV,
             id:empleado.id
         }, jwtPass);
         return {token:token, logueado: true};

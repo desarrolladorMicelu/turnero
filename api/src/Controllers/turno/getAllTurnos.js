@@ -4,7 +4,9 @@ const getEmpleadoByID = require('../empleado/getEmpleadoByID');
 
 const getAllTurnos = async()=>{
     const turnosRenderizados = []
-    const turnos = await Turno.findAll();
+    const turnos = await Turno.findAll({
+        order: [['tiempoEntrada', 'ASC']], // Ordenar por la columna 'fecha' en orden ascendente
+      });
 
     for (let index = 0; index < turnos.length; index++) {
         let empleado = {nombre:'null'};

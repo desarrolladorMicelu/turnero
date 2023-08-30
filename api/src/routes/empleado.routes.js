@@ -8,6 +8,7 @@ const handlerGetAllEmpleados = require('../handlers/empleado/handlerGetAllEmplea
 const handlerGetEmpleadosDashboard = require('../handlers/empleado/handlerGetEmpleadosDashboard');
 const handlerPutEmpleado = require('../handlers/empleado/handlerPutEmpleado');
 const handlerPutContrasenaEmpleado = require('../handlers/empleado/handlerPutContrasenaEmpleado');
+const handlerPostTV = require('../handlers/empleado/handlerPostTV');
 const routeEmpleado = Router();
 
 routeEmpleado.get("/sede", handlerGetAllSedes);
@@ -19,5 +20,6 @@ routeEmpleado.post("/", handlerPostEmpleado);
 routeEmpleado.post("/admin", handlerPostAdmin);
 routeEmpleado.post("/jefeTienda", handlerPostJefeTienda);
 routeEmpleado.post("/sede", handlerPostSede);
+routeEmpleado.post("/TV", handlerPostTV)
 
 module.exports = routeEmpleado;

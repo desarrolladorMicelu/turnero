@@ -29,6 +29,14 @@ export const getPendientes = () => {
     }
 }
 
+export const getEnAtencion = () => {
+    return async(dispatch)=>{
+        const turnosPendientes = await axios.get('/turno/enAtencion');
+        return turnosPendientes.data
+    }
+}
+
+
 export const putTurno = (id, tiempoAtencion, tiempoSalida, empleado) =>{
     return async (dispatch) => {
         await axios.put(

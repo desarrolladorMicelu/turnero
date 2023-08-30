@@ -6,6 +6,7 @@ import Pendientes from './components/pendientes/Pendientes';
 import Historial from './components/historial/historial';
 import AtendiendoTurno from './components/atendiendoTurno/AtendiendoTurno';
 import Dashboard from './components/dashboard/Dashboard';
+import TvView from './components/tvView/TvView';
 import axios from 'axios';
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='/historial' element={<Historial />}/>
         <Route path='/atendiendo' element={<AtendiendoTurno />}/>
         <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/tvView' element={<TvView/>} />
       </Routes>
 
 

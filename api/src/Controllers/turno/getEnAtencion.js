@@ -1,13 +1,14 @@
-const {Turno} = require('../../db');
+const {Turno, sequelize, Sequelize } = require('../../db');
 const getClienteByID = require('../cliente/getClienteByID');
 
-const getPendientes = async()=>{
+const getEnAtencion = async()=>{
     
     const listaRenderizar = [];
 
     const turnos = await Turno.findAll({
         where: {
-            atendido: false,
+            atendido: true,
+            tiempoSalida: null
         },
         order: [
             ['tiempoEntrada', 'ASC']
@@ -38,4 +39,6 @@ const getPendientes = async()=>{
     return listaRenderizar;
 }
 
-module.exports = getPendientes;
+module.exports = getEnAtencion;
+
+

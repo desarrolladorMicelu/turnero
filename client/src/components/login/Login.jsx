@@ -69,6 +69,9 @@ const Login = () => {
           navigate('/tipoTurno');
         }else if(data.info.admin){
           navigate('/historial');
+        }else if(data.info.isTV){
+          localStorage.setItem('sede', data.info.sede);
+          navigate('/tvView');
         }else{
           localStorage.setItem('sede', data.info.sede);
           navigate('/pendientes');
