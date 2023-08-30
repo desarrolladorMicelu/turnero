@@ -61,7 +61,7 @@ const TvView = () => {
     return (
     <section className={style.ancho}>
         <div className={`${style.central}`}>
-            <p className={`${style.llama}`}> Recuerda tomar tu en la tablet para ser atendido </p> 
+            <p className={`${style.llama}`}> Recuerda tomar tu turno en la tablet para ser atendido </p> 
             
         </div>
         <div className={`${style.container} shadow`}>
@@ -86,13 +86,7 @@ const TvView = () => {
 
 
 
-                    <div className={`${style.dcliente}`}>
-                        <button  id ="botton" className={`${style.boton} ${style.clientes}`}>
-                            <span className={`${style.parte1}`}>  Antonio Rodriguez </span>
-                            <span  className={`${style.parte2}`}> SERVICIO TECNICO</span>
-                            
-                        </button>
-                    </div> 
+                    
                     
 
 
@@ -113,17 +107,22 @@ const TvView = () => {
                 
 
 
-                    {enAtencion.map((turnoEnAtencion)=>(
-                        <div className={`${style.ccliente}`}>
-                            <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
-                                <span className={`${style.parte1}`}>  Juanito Perez </span>
-                                <span> MOD 1 </span>
-                                
-                            </button>
-                        </div> 
-
-                    ))}
                     
+                    <div className={`${style.ccliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
+                            <span className={`${style.parte1}`}>  {enAtencion[0].cliente} </span>
+                        </button>
+                    </div> 
+                    <div className={`${style.ccliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
+                            <span className={`${style.parte1}`}>  {enAtencion[1].cliente} </span>
+                        </button>
+                    </div> 
+                    <div className={`${style.ccliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
+                            <span className={`${style.parte1}`}>  {enAtencion[2].cliente} </span>
+                        </button>
+                    </div> 
 
 
 
