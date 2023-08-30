@@ -56,11 +56,15 @@ function TurnoFormulario() {
 
     dispatch(postTurno(motivo, tiempoEntrada, sede, celular, nombre, apellido))
     toast({
-      title: `Se te ha asignado el turno`,
-      description: `En un momento te atenderán`,
+      position: 'top',
       status: 'success',
       duration: 9000,
       isClosable: true,
+      render: () => (
+        <Box color='white' p={3} bg='green.500'>
+          Se te ha asignado el turno, En un momento te atenderán
+        </Box>
+      ),
     });
     
 
