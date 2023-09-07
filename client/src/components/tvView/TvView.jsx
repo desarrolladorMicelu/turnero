@@ -36,23 +36,26 @@ const TvView = () => {
             const enAtencion = await getEnAtencion()();
             
             const atencionFiltrados = enAtencion.filter(turno=>turno.sede===sedee);
-            console.log(atencionFiltrados);
             setEnAtencion(atencionFiltrados);
         }
-
+        fetchInfo();
+        traerPendientes();
+        traerPendientes();
 
         const interval = setInterval(() => {
 
             
             traerPendientes(sede);
-            traerEnAtencion(sede)
+            traerEnAtencion(sede);
+            console.log(pendientes);
+            console.log(enAtencion);
             
         }, 2000); // 5000 ms = 5 segundos
 
         
         
         
-        fetchInfo();
+        
         // Limpia el intervalo cuando el componente se desmonte
         return () => clearInterval(interval);
       }, [sede]); // El array vacío asegura que el efecto se ejecute solo al montar y desmontar
@@ -110,17 +113,17 @@ const TvView = () => {
                     
                     <div className={`${style.ccliente}`}>
                         <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
-                            <span className={`${style.parte1}`}>  {enAtencion[0].cliente} </span>
+                            <span className={`${style.parte1}`}>  {enAtencion.length>0 && enAtencion[0].cliente} </span>
                         </button>
                     </div> 
                     <div className={`${style.ccliente}`}>
                         <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
-                            <span className={`${style.parte1}`}>  {enAtencion[1].cliente} </span>
+                            <span className={`${style.parte1}`}>  {enAtencion.length>0 && enAtencion[1].cliente} </span>
                         </button>
                     </div> 
                     <div className={`${style.ccliente}`}>
                         <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
-                            <span className={`${style.parte1}`}>  {enAtencion[2].cliente} </span>
+                            <span className={`${style.parte1}`}>  {enAtencion.length>0 && enAtencion[2].cliente} </span>
                         </button>
                     </div> 
 

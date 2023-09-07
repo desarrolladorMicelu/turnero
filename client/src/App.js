@@ -13,8 +13,8 @@ import axios from 'axios';
 import './App.css';
 import { Route, Routes} from 'react-router-dom';
 
-axios.defaults.baseURL = 'https://turnero-production.up.railway.app/';
-// axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'https://turnero-production.up.railway.app/';
+axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
   // const {pathname} = useLocation();
