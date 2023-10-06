@@ -13,7 +13,7 @@ routeTurno.post("/", handlerPostTurno);
 routeTurno.get("/pendientes", handlerGetPendientes);
 routeTurno.get("/atendidos", handlerGetAtendidos);
 routeTurno.get("/enAtencion", handlerGetEnAtencion)
-routeTurno.put("/actualizar/:id", hanlderPutTurno);
+// routeTurno.put("/actualizar/:id", hanlderPutTurno);
 
 
 module.exports = routeTurno;

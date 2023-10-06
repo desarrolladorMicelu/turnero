@@ -4,7 +4,9 @@ import style from './pantalla.module.css';
 import {useNavigate} from 'react-router-dom';
 import {verificarToken, getEnAtencion, getPendientes} from '../../redux/actions';
 import { useDispatch } from 'react-redux';
+import io from 'socket.io-client';
 
+const socket = io('https://turnero-production.up.railway.app')
 
 const TvView = () => {
     const dispatch = useDispatch();
@@ -23,42 +25,24 @@ const TvView = () => {
             else{
                 setSede(tokenData.info.sede);
             }
-        }
-        
-        const traerPendientes = async(sedee)=>{
-            const pendientesTurnos = await getPendientes()();
-            
-            const pendientesSede = pendientesTurnos.filter(turno=>turno.sede===sedee);
-            setPendientes(pendientesSede);
-        }
+            const enAtencionBack = await getEnAtencion()();
+            const pendientesBack = await getPendientes()();
+            setEnAtencion(enAtencionBack);
+            setPendientes(pendientesBack)
 
-        const traerEnAtencion = async(sedee)=>{
-            const enAtencion = await getEnAtencion()();
-            
-            const atencionFiltrados = enAtencion.filter(turno=>turno.sede===sedee);
-            setEnAtencion(atencionFiltrados);
         }
         fetchInfo();
-        traerPendientes();
-        traerPendientes();
 
-        const interval = setInterval(() => {
+        socket.on('actualizacion-turno', () => {
+            console.log('Se recibió una actualización de turno. Recargando la página...');
+            try {
+              window.location.reload(); // Recargar la página al recibir una actualización
+            } catch (error) {
+              console.error('Error al recargar la página:', error);
+            }
+          });
 
-            
-            traerPendientes(sede);
-            traerEnAtencion(sede);
-            console.log(pendientes);
-            console.log(enAtencion);
-            
-        }, 2000); // 5000 ms = 5 segundos
-
-        
-        
-        
-        
-        // Limpia el intervalo cuando el componente se desmonte
-        return () => clearInterval(interval);
-      }, [sede]); // El array vacío asegura que el efecto se ejecute solo al montar y desmontar
+      }, []); // El array vacío asegura que el efecto se ejecute solo al montar y desmontar
 
 
     return (

@@ -11,7 +11,7 @@ const getEnAtencion = async()=>{
             tiempoSalida: null
         },
         order: [
-            ['tiempoEntrada', 'ASC']
+            ['tiempoEntrada', 'DESC']
         ]
     });
     

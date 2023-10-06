@@ -1,7 +1,6 @@
 const {Turno, Empleado} = require('../../db');
 
 const putTurno = async(tiempoAtencion, tiempoSalida, id, empleado)=>{
-    console.log(empleado);
     let turnoActualizado = {};
     if(!tiempoAtencion){
         turnoActualizado = await Turno.update(
