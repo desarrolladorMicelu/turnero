@@ -7,6 +7,7 @@ require('./src/db.js');
 const { conn } = require("./src/db.js");
 require('dotenv').config();
 const putTurno = require('./src/Controllers/turno/putTurno');
+const postTurno = require('./src/Controllers/turno/postTurno');
 const app = require('express')();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server,{
@@ -51,6 +52,21 @@ app.put('/turno/actualizar/:id', async(req, res)=>{
 
 })
 
+
+app.post("/turno", async(req, res) => {
+  try {
+    const {razon, tiempoEntrada, sede, celular, nombre, apellido} = req.body;
+    
+    const nuevoTurno = await postTurno(razon, tiempoEntrada, sede, celular, nombre, apellido);
+
+    io.emit('Creacion-turno', { mensaje: 'Se actualizó un turno' });
+
+    res.status(200).json(nuevoTurno);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 // Error catching endware.
 app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;
@@ -58,10 +74,6 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   console.error(err);
   res.status(status).send(message);
 });
-
-
-
-
 
 
 conn.sync({ alter: true }).then(() => {

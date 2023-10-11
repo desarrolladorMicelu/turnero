@@ -28,7 +28,6 @@ const getEnAtencion = async()=>{
             cliente: `${clienteSelec.nombre} ${clienteSelec.apellido}`,
             celular: clienteSelec.celular,
             tiempoAtencion: element.tiempoAtencion,
-            tiempoSalida: element.tiempoSalida,
             sede: element.sede,
             habeasData: "Terminos aceptados",
             atendido:false

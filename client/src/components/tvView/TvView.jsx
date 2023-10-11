@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import io from 'socket.io-client';
 
 const socket = io('https://turnero-production.up.railway.app');
-// const socket = io('http://localhost:3000');
+// const socket = io('http://localhost:3001');
 
 const TvView = () => {
     const dispatch = useDispatch();
@@ -28,20 +28,29 @@ const TvView = () => {
             }
             const enAtencionBack = await getEnAtencion()();
             const pendientesBack = await getPendientes()();
-            
-            const atencionSede = enAtencionBack.filter(turno=>turno.sede===sede);
-            const pendientesSede = pendientesBack.filter(turno=>turno.sede===sede);
-            
+            const atencionSede = enAtencionBack.filter((turno)=>turno.sede==localStorage.getItem('sede'));
+            const pendientesSede = pendientesBack.filter((turno)=>turno.sede==localStorage.getItem('sede'));
             setEnAtencion(atencionSede);
-            setPendientes(pendientesSede)
+            setPendientes(pendientesSede);
+
 
         }
         fetchInfo();
 
-        socket.on('actualizacion-turno', () => {
+        socket.on('actualizacion-turno', async() => {
             console.log('Se recibió una actualización de turno. Recargando la página...');
             try {
               window.location.reload(); // Recargar la página al recibir una actualización
+              
+            } catch (error) {
+              console.error('Error al recargar la página:', error);
+            }
+          });
+          socket.on('Creacion-turno', async() => {
+            console.log('Se creó un nuevo turno. Recargando la página...');
+            try {
+              window.location.reload(); // Recargar la página al recibir una actualización
+              
             } catch (error) {
               console.error('Error al recargar la página:', error);
             }

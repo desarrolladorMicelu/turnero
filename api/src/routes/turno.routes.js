@@ -9,7 +9,7 @@ const routeTurno = Router();
 
 
 routeTurno.get("/", handlerGetAllTurnos);
-routeTurno.post("/", handlerPostTurno);
+// routeTurno.post("/", handlerPostTurno);
 routeTurno.get("/pendientes", handlerGetPendientes);
 routeTurno.get("/atendidos", handlerGetAtendidos);
 routeTurno.get("/enAtencion", handlerGetEnAtencion)
