@@ -6,7 +6,8 @@ import {verificarToken, getEnAtencion, getPendientes} from '../../redux/actions'
 import { useDispatch } from 'react-redux';
 import io from 'socket.io-client';
 
-const socket = io('https://turnero-production.up.railway.app')
+const socket = io('https://turnero-production.up.railway.app');
+// const socket = io('http://localhost:3000');
 
 const TvView = () => {
     const dispatch = useDispatch();
@@ -27,8 +28,12 @@ const TvView = () => {
             }
             const enAtencionBack = await getEnAtencion()();
             const pendientesBack = await getPendientes()();
-            setEnAtencion(enAtencionBack);
-            setPendientes(pendientesBack)
+            
+            const atencionSede = enAtencionBack.filter(turno=>turno.sede===sede);
+            const pendientesSede = pendientesBack.filter(turno=>turno.sede===sede);
+            
+            setEnAtencion(atencionSede);
+            setPendientes(pendientesSede)
 
         }
         fetchInfo();
@@ -57,31 +62,33 @@ const TvView = () => {
                 <h2 className={`${style.titulo}`}>Proximos Turnos </h2>
                 
                 <div className={`${style.esperando} shadow`}>
-                
-                    
-            
-                        {pendientes.map((turnoPendiente)=>(
-                            <div className={`${style.dcliente}`}>
-                                <button  id ="botton" className={`${style.boton} ${style.clientes}`}>
-                                    <span className={`${style.parte1}`}>  {turnoPendiente.cliente} </span>
-                                    <span> {turnoPendiente.razon} </span>
+    
+                    {pendientes.length>0 && <div className={`${style.dcliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.clientes}`}>
+                            <span className={`${style.parte1}`}>  {pendientes.length>0 && pendientes[0].cliente} </span>
+                            <span> {pendientes.length>0 && pendientes[0].razon} </span>
 
-                                </button>
-                            </div> 
-                        ))}
-                    
+                        </button>
+                    </div>}
 
+                    {pendientes.length>1 && <div className={`${style.dcliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.clientes}`}>
+                            <span className={`${style.parte1}`}>  {pendientes.length>0 && pendientes[1].cliente} </span>
+                            <span> {pendientes.length>0 && pendientes[1].razon} </span>
 
+                        </button>
+                    </div> }
 
-                    
-                    
+                    {pendientes.length>2 && <div className={`${style.dcliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.clientes}`}>
+                            <span className={`${style.parte1}`}>  {pendientes.length>0 && pendientes[2].cliente} </span>
+                            <span> {pendientes.length>0 && pendientes[2].razon} </span>
 
-
+                        </button>
+                    </div> }
 
                 </div>
-                
 
-            
             </div>
             <div className={`${style.half}`}>
                 
@@ -95,21 +102,21 @@ const TvView = () => {
 
 
                     
-                    <div className={`${style.ccliente}`}>
+                    {enAtencion.length>0 && <div className={`${style.ccliente}`}>
                         <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
                             <span className={`${style.parte1}`}>  {enAtencion.length>0 && enAtencion[0].cliente} </span>
                         </button>
-                    </div> 
-                    <div className={`${style.ccliente}`}>
+                    </div>}
+                    {enAtencion.length>1 && <div className={`${style.ccliente}`}>
                         <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
                             <span className={`${style.parte1}`}>  {enAtencion.length>0 && enAtencion[1].cliente} </span>
                         </button>
-                    </div> 
-                    <div className={`${style.ccliente}`}>
+                    </div>}
+                    {enAtencion.length>2 && <div className={`${style.ccliente}`}>
                         <button  id ="botton" className={`${style.boton} ${style.actualb}`}>
                             <span className={`${style.parte1}`}>  {enAtencion.length>0 && enAtencion[2].cliente} </span>
                         </button>
-                    </div> 
+                    </div>}
 
 
 
