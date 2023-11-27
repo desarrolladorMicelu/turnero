@@ -96,6 +96,14 @@ const TvView = () => {
                         </button>
                     </div> }
 
+                   {pendientes.length>3 && <div className={`${style.dcliente}`}>
+                        <button  id ="botton" className={`${style.boton} ${style.clientes}`}>
+                            <span className={`${style.parte1}`}>  {pendientes.length>0 && pendientes[3].cliente} </span>
+                            <span> {pendientes.length>0 && pendientes[3].razon} </span>
+
+                        </button>
+                    </div> }
+
                 </div>
 
             </div>
