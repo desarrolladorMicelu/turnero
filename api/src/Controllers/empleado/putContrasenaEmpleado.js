@@ -1,4 +1,4 @@
-const {Empleado} = require('../../db');
+const {Empleado} = require('../../db').conn2;
 const bcrypt = require('bcryptjs'); 
 
 const putContrasenaEmpleado = async(nombre, password, id)=>{

@@ -1,4 +1,4 @@
-const {Empleado} = require('../../db');
+const {Empleado} = require('../../db').conn2;
 
 
 const putEmpleado = async(id, propiedad, valor)=>{

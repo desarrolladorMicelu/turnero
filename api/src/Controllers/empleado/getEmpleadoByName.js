@@ -1,4 +1,4 @@
-const {Empleado} = require('../../db').conn2;;
+const {Empleado} = require('../../db').conn2;
 
 const getEmpleadoByName = async (usuario) => {
 
