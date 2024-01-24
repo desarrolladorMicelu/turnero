@@ -26,7 +26,7 @@ fs.readdirSync(path.join(__dirname, "/models"))
   .forEach((file) => {
     const modelDefiner = require(path.join(__dirname, "/models", file));
     // Usar sequelize para todos los modelos, excepto Empleado
-    if (file === 'empleado.js') {
+    if (file === 'Empleados.js') {
       modelDefiner(sequelize2);
     } else {
       modelDefiner(sequelize);
