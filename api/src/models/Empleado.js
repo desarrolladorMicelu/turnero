@@ -1,9 +1,9 @@
 const { DataTypes, UUIDV1 } = require('sequelize');
 
 
-module.exports = (sequelize) => {
+module.exports = (sequelize2) => {
     // defino el modelo
-    sequelize.define('Empleado', {
+    sequelize2.define('Empleado', {
       id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV1,
