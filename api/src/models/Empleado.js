@@ -40,6 +40,7 @@ module.exports = (sequelize2) => {
 
       },
       {
+       tableName: 'empleados',
        timestamps:false
       });
   };
