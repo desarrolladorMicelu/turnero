@@ -76,7 +76,7 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 
-conn.sync({ alter: true }).then(() => {
+conn.sync().then(() => {
   server.listen(process.env.PORT, () => {
     console.log("Server is listening at port > ", process.env.PORT);
   });
