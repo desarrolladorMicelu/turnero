@@ -7,6 +7,7 @@ const handlerInicioSesion = async(req, res) => {
 
     res.status(200).json(login);
   } catch (error) {
+    console.error(error);
     res.status(400).json({ error: error.message });
   }
 };
