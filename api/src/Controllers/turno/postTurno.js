@@ -3,7 +3,7 @@ const getClientebyCel = require('../cliente/getClientebyCel');
 const postCliente = require('../cliente/postCliente');
 
 
-const postTurno = async(razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste)=>{
+const postTurno = async(razon, tiempoEntrada, sede, celular, nombre, apellido)=>{
 
     let cliente = await getClientebyCel(celular);
 
@@ -16,7 +16,7 @@ const postTurno = async(razon, tiempoEntrada, sede, celular, nombre, apellido,co
     });
 
     if(!cliente){
-        cliente = await postCliente(celular, nombre, apellido,comoNosConociste)
+        cliente = await postCliente(celular, nombre, apellido)
     }
 
     await nuevoTurno.setCliente(cliente);

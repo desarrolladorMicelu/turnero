@@ -14,20 +14,7 @@ import './App.css';
 import { Route, Routes} from 'react-router-dom';
 
 axios.defaults.baseURL = 'https://turnero-production.up.railway.app/';
-//axios.defaults.baseURL = 'http://localhost:3000';
-
-axios.interceptors.request.use(request => {
-  console.log('Starting Request', request)
-  return request
-})
-
-axios.interceptors.response.use(response => {
-  console.log('Response:', response)
-  return response
-}, error => {
-  console.log('Response Error:', error.response)
-  return Promise.reject(error)
-})
+// axios.defaults.baseURL = 'http://localhost:3001';
 
 function App() {
   // const {pathname} = useLocation();

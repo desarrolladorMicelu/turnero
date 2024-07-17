@@ -1,21 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
 .panelp {
     display: flex;
     flex-direction: row;
     align-items: start;
     justify-content: start;
     flex-wrap: wrap;
-}
-
-.clientep {
+  }
+  
+  .clientep {
     margin-left: 1vw;
     margin-top: 1vw;
-    width: 20vw;
+    width: 20vw; 
     height: 13.2vw;
     background-color: rgb(252, 252, 252);
     text-align: left;
@@ -27,80 +21,55 @@ body {
     padding-top: 0.3vw;
     padding-left: 0.7vw;
     padding-right: 0.7vw;
-}
 
+
+  }
+  
+
+  
 .titulop {
-  font-size: 2.5vw;  /* Reducido un poco el tamaño de la fuente */
-  font-weight: bold;
-  color: white;
-  margin: 0;  /* Elimina cualquier margen por defecto */
-}
-
-
-.datos1 {
+    font-size: 3vw;
+    font-weight: bold;
+    
+  }
+  
+  .datos1 {
     font-size: 1.5vw;
-}
+  
+    
+  }
+  
+  
+  body {
+  
+     background-color: #BBC7D6;
+    }
 
-.panel1 {
-  background-color: #000000;
-  border: none;
-  padding: 10px 0;  /* Reducido de p-5 a un padding vertical más pequeño */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;  /* Añadido para dar algo de espacio debajo del título */
-}
 
-.boton1 {
-  color: white !important;
-  background: #000000 !important;
-  border: 2px solid #F19C49 !important;
-  padding: 6vw 8vw !important;
-  box-shadow: 0 0 5px #F19C49 !important;
-  width: auto !important;
-  height: auto !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  overflow: hidden !important;
-  font-size: 2.5vw !important; /* Aumentamos el tamaño de la fuente */
-  line-height: 1 !important; /* Ajustamos la altura de línea */
-  display: flex !important; /* Añadimos flexbox */
-  align-items: center !important; /* Centramos verticalmente */
-  justify-content: center !important; /* Centramos horizontalmente */
-}
 
-.boton2 {
-  color: white !important;
-  background: #000000 !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  border-top-right-radius: 3.2vw !important;
-  border-bottom-right-radius: 3.2vw !important;
-  border: 2px solid #F19C49 !important; /* Reducido el grosor del borde */
-  padding: 1.0vw 2.0vw !important;
-  box-shadow: 0 0 5px #F19C49 !important; /* Reducido el resplandor */
-  width: auto !important;
-  height: auto !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  overflow: hidden !important; /* Evita que el resplandor se salga del botón */
+   .panel1{
+    background-color: #ffffff;
+    border: black;
+
 }
 
 
-.boton1:hover, .boton2:hover {
-  background: #F19C49 !important;
-  color: #000000 !important;
-  box-shadow: 0 0 10px #F19C49 inset !important; /* Resplandor interno */
-}
+    .boton1 {
+        color: white;
+        background:  #F19C49 ;
+        border-radius: 0.7vw;
+        border: black;
+        padding: 1vw 2vw;
+        box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
+        width:  10vw; 
+        height: 4vw;
+        cursor: pointer;
+        float: right;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        
 
-.boton1:active, .boton2:active {
-  transform: scale(0.95) !important;
-}
+    }
+ 
+    .boton1:active {
+      transform: scale(0.9);
+    }

@@ -4,11 +4,11 @@ export const POST_TURNO = "POST_TURNO";
 export const GET_PENDIENTES = "GET_PENDIENTES";
 export const GET_ATENDIDOS = "GET_ATENDIDOS";
 
-export const postTurno = (razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste) =>{
+export const postTurno = (razon, tiempoEntrada, sede, celular, nombre, apellido) =>{
     return async (dispatch) =>{
         await axios.post(
             '/turno',
-            {razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste}
+            {razon, tiempoEntrada, sede, celular, nombre, apellido}
         );
 
     }

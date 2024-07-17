@@ -1,51 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
-
-.panel {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.title-container {
-  margin-bottom: 20px;
-}
-
-.title-text {
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.boton1 {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.boton1:hover {
-  opacity: 0.9;
-}
-
-/* Mantén los placeholders en su estilo original */
-::placeholder {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  font-weight: normal;
-}
 
 .titulop {
   font-size: 3.5vw;
@@ -55,13 +8,24 @@
   
   .titulos {
     font-size: 2.8vw;
+    
+    
   }
   
   
   body {
+  
+     
       background-color: #BBC7D6;
+      
+      
+  
     }
+  
+  
     .panel {
+      
+      
       background-color: #D0D3D4 ;
    }
   
@@ -75,7 +39,9 @@
       border: none;
       padding: 1vw 2vw;
       box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
-
+  
+  
+  
       .parte1 {
         position: absolute;
         top: 50%;
@@ -83,11 +49,14 @@
         transform: translate(-50%, -50%);
       }
       
+     
+         
+  
    }
   
    .boton1 {
     color: white;
-    background:  #000000 ;
+    background:  #F19C49 ;
     border-top-right-radius: 4vw;
     border-bottom-right-radius: 4vw;
     border: none;
@@ -106,26 +75,4 @@
  
     font-weight: bold;
 
-  }
-
-  html {
-    font-family: sans-serif;
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-  
-  .title-container {
-    background: black;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .title-text {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
   }
