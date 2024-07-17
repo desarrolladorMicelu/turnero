@@ -2,9 +2,9 @@ const postTurno = require('../../Controllers/turno/postTurno');
 
 const handlerGetClientebyCel = async(req, res) => {
   try {
-    const {razon, tiempoEntrada, sede, celular, nombre, apellido} = req.body;
+    const {razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste} = req.body;
     
-    const nuevoTurno = await postTurno(razon, tiempoEntrada, sede, celular, nombre, apellido);
+    const nuevoTurno = await postTurno(razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste);
 
     res.status(200).json(nuevoTurno);
   } catch (error) {
