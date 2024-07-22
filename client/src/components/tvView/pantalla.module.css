@@ -86,7 +86,7 @@ img {
 
 .actual {
     padding: 0.50vw;
-    height: 60%;
+    height: 52%;
     box-sizing: border-box;
     font-size: 1.5vw;
     border: 0.15vw solid rgb(71, 58, 45);
@@ -148,8 +148,11 @@ img {
 }
 
 .proximo {
-    height: 40%;
+    height: 110%; /* Mantenemos el aumento de altura */
     padding: 0.70vw;
+    display: flex; /* Añadimos display flex */
+    flex-direction: column; /* Organizamos el contenido en columna */
+    box-sizing: border-box; /* Incluimos padding en el cálculo de altura */
 }
 
 .proximo .titulo {
