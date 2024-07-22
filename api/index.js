@@ -55,9 +55,9 @@ app.put('/turno/actualizar/:id', async(req, res)=>{
 
 app.post("/turno", async(req, res) => {
   try {
-    const {razon, tiempoEntrada, sede, celular, nombre, apellido} = req.body;
+    const {razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste} = req.body;
     
-    const nuevoTurno = await postTurno(razon, tiempoEntrada, sede, celular, nombre, apellido);
+    const nuevoTurno = await postTurno(razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste);
 
     io.emit('Creacion-turno', { mensaje: 'Se actualizó un turno' });
 
