@@ -24,7 +24,8 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
     "socket.io-client": "^4.7.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-icons": "^4.10.1"
   },
   "scripts": {
     "start": "react-scripts start",

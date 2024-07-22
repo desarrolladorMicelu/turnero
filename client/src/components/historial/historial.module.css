@@ -3,7 +3,12 @@
   .titulop {
     font-size: 2vw;
     font-weight: bold;
-    
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    padding: 10px;
+    display: inline-block; /* Para que el fondo negro se ajuste al contenido */
+    margin: 0; /* Para eliminar el margen predeterminado del h3 */
   }
   
   .body {
