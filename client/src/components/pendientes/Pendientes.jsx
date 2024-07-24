@@ -44,11 +44,11 @@ const Pendientes = () => {
 
   const groupAppointmentsByReason = () => {
     const grouped = {};
-    pendientes.forEach(turno => {
+    pendientes.forEach((turno, index) => {
       if (!grouped[turno.razon]) {
         grouped[turno.razon] = [];
       }
-      grouped[turno.razon].push(turno);
+      grouped[turno.razon].push({ ...turno, orderNumber: index + 1 });
     });
     return grouped;
   };
@@ -84,25 +84,21 @@ const Pendientes = () => {
         )}
         {atendiendo && (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-around', marginBottom: '20px' }}>
-              {sortedReasons.map((reason) => (
-                <h4 key={reason} style={{ fontWeight: 'bold' }}>{reason}</h4>
-              ))}
-            </div>
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-              {sortedReasons.map((reason) => (
-                <div key={reason} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
-                  {groupAppointmentsByReason()[reason].map((turnoPendiente) => (
-                    <TurnoPendiente
-                      key={turnoPendiente.id}
-                      id={turnoPendiente.id}
-                      nombre={`${turnoPendiente.cliente}`}
-                      razon={turnoPendiente.razon}
-                      celular={`${turnoPendiente.celular}`}
-                    />
-                  ))}
-                </div>
-              ))}
+            {sortedReasons.map((reason) => (
+              <div key={reason} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
+                {groupAppointmentsByReason()[reason].map((turnoPendiente) => (
+                  <TurnoPendiente
+                    key={turnoPendiente.id}
+                    id={turnoPendiente.id}
+                    nombre={`${turnoPendiente.cliente}`}
+                    razon={turnoPendiente.razon}
+                    celular={`${turnoPendiente.celular}`}
+                    orderNumber={turnoPendiente.orderNumber}
+                  />
+                ))}
+              </div>
+            ))}
             </div>
           </div>
         )}
