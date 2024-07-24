@@ -1,53 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
-body {
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: "Poppins", sans-serif;
+  overflow: hidden;
 }
 
 .mainContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
+  height: 100vh;
+  padding: 0;
 }
 
 .panel {
   background-color: #D0D3D4;
-  width: 100%;
-  max-width: 500px;
-  padding: 20px;
-  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 .welcome-container {
   background-color: black;
   color: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
   text-align: center;
   width: 100%;
 }
 
 .welcome-title {
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 2em;
   margin: 0;
 }
 
 .welcome-subtitle {
   font-weight: 500;
-  font-size: 1.2em;
-  margin: 5px 0 0 0;
+  font-size: 1.5em;
+  margin: 10px 0 0 0;
 }
 
 .buttonContainer {
@@ -55,7 +55,7 @@ body {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .boton {
@@ -66,13 +66,13 @@ body {
   border-bottom-right-radius: 2em;
   border: none;
   width: 100%;
-  max-width: 300px;
-  padding: 10px 15px;
-  font-size: 1em;
+  max-width: 400px;
+  padding: 15px 20px;
+  font-size: 1.2em;
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  text-align: center;
+  justify-content: space-between !important;
+  text-align: left;
   transition: transform 0.2s;
 }
 
@@ -82,24 +82,16 @@ body {
 }
 
 .boton svg {
-  margin-right: 10px;
+  margin-right: 15px;
+  font-size: 1.5em;
 }
 
 .boton:active {
   transform: scale(0.98);
 }
 
-.parte1 {
-  background-color: #ffffff;
-  color: black;
-  padding: 0.5em 0.8em;
-  border-radius: 50%;
-  margin-right: 1.5em;
-  font-weight: bold;
-}
-
 .logoContainer {
-  margin-top: 20px;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -107,22 +99,116 @@ body {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 50px;
+  max-height: 60px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .mainContainer {
+    align-items: center;
+  }
+
+  .panel {
+    width: 90%;
+    padding: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .welcome-title {
-    font-size: 1.3em;
+    font-size: 1.8em;
   }
 
   .welcome-subtitle {
-    font-size: 1em;
+    font-size: 1.3em;
   }
 
+  .boton {
+    font-size: 1.1em;
+    padding: 12px 18px;
+  }
+}
 
+@media (max-width: 1024px) and (orientation: landscape) {
+  .panel {
+    padding: 20px;
+  }
 
-  .parte1 {
-    padding: 0.4em 0.7em;
-    margin-right: 1em;
+  .buttonContainer {
+    gap: 15px;
+  }
+
+  .boton {
+    padding: 10px 15px;
+    font-size: 1em;
+  }
+}
+
+.boton span {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.boton svg {
+  margin-right: 15px;
+  font-size: 1.5em;
+}
+
+.boton:active {
+  transform: scale(0.98);
+}
+
+.logoContainer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.logo {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 60px;
+}
+
+@media (max-width: 1024px) {
+  .mainContainer {
+    align-items: center; /* Asegura centrado vertical */
+  }
+
+  .panel {
+    width: 90%;
+    padding: 25px;
+    margin: 0; /* Elimina cualquier margen */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Coloca el borde superior en el centro */
+    transform: translateY(-50%); /* Mueve hacia arriba la mitad de su altura */
+  }
+
+  .welcome-title {
+    font-size: 1.8em;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.3em;
+  }
+
+  .boton {
+    font-size: 1.1em;
+    padding: 12px 18px;
+  }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .panel {
+    max-height: 90vh;
+  }
+
+  .buttonContainer {
+    gap: 15px;
+  }
+
+  .boton {
+    padding: 10px 15px;
+    font-size: 1em;
   }
 }
