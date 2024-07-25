@@ -8,6 +8,8 @@ import { Button, Box, ButtonGroup } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
 import Nav from '../navBar/Nav';
 
+
+
 const reasonOrder = [
   "Asesoría y Ventas",
   "Garantía",
@@ -53,7 +55,6 @@ const Pendientes = () => {
     return grouped;
   };
 
-  // Sort reasons based on the predefined order
   const sortedReasons = Object.keys(groupAppointmentsByReason()).sort(
     (a, b) => reasonOrder.indexOf(a) - reasonOrder.indexOf(b)
   );
@@ -87,6 +88,7 @@ const Pendientes = () => {
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
             {sortedReasons.map((reason) => (
               <div key={reason} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1 }}>
+                 <h4 style={{ marginBottom: '10px', fontWeight: 'bold' }}>{reason}</h4> {/* Título de la categoría */}
                 {groupAppointmentsByReason()[reason].map((turnoPendiente) => (
                   <TurnoPendiente
                     key={turnoPendiente.id}
