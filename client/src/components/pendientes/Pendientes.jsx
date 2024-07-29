@@ -60,7 +60,7 @@ const Pendientes = () => {
   );
 
   return (
-    <section>
+    <section style={{ height: '100vh', overflowY: 'auto' }}>
       <div className={`${style.panel1} col-xs-12 text-center`}>
         <h3 className={`${style.titulop}`}>
           <span>CLIENTES PENDIENTES</span>
