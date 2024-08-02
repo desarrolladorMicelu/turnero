@@ -21,11 +21,7 @@ module.exports = (sequelize) => {
       apellido: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      comoNosConociste:{
-        type:DataTypes.STRING,
-        allowNull:false,
-      },
+      }
       },
       {
        timestamps:false

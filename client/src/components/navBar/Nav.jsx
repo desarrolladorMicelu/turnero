@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import style from './nav.module.css';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-const Nav = ({ admin, nombreUsuario }) => {
+const Nav = ({admin}) =>{
+
   const navigate = useNavigate();
-  const [isMinimized, setIsMinimized] = useState(false);
 
-  const redirectDashboard = () => {
+  const redirectDashboard = ()=>{
     navigate('/dashboard');
   }
 
@@ -19,30 +19,34 @@ const Nav = ({ admin, nombreUsuario }) => {
     navigate('/pendientes');
   }
 
-  const toggleMinimize = () => {
-    setIsMinimized(!isMinimized);
-  }
 
-  return (
-    <div className={`card shadow ${style.footer} ${isMinimized ? style.minimized : ''}`}>
-      <button className={style.toggleButton} onClick={toggleMinimize}>
-        {isMinimized ? '▲' : '▼'}
+  return(
+  <div  className={`card shadow  ${style.footer}`} >
+  
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div className={style.welcomeTitle}>
-        <h4>Bienvenido <span className={style.userName}>{nombreUsuario}</span></h4>
-        <p>¿Qué deseas hacer?</p>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          {!admin && <li className="nav-item">
+              <button className="nav-link" onClick={redirectAtender}>Atender</button>
+          </li>}
+          <li className="nav-item">
+            <button onClick={redirectHistorial} className="nav-link">Historial</button>
+          </li>
+          {admin && <li className="nav-item">
+            <button onClick={redirectDashboard} className="nav-link">Dashboard Admin</button>
+          </li>}
+          
+        </ul>
       </div>
-      <div className={style.buttonContainer}>
-        {!admin &&
-          <button className={style.navButton} onClick={redirectAtender}>Atender</button>
-        }
-        <button onClick={redirectHistorial} className={style.navButton}>Historial</button>
-        {admin &&
-          <button onClick={redirectDashboard} className={style.navButton}>Dashboard Admin</button>
-        }
-      </div>
-    </div>
+      </nav>
+      
+  </div>
   );
 }
+
 
 export default Nav;
