@@ -1,14 +1,16 @@
 import axios from 'axios';
 
+
+
 export const POST_TURNO = "POST_TURNO";
 export const GET_PENDIENTES = "GET_PENDIENTES";
 export const GET_ATENDIDOS = "GET_ATENDIDOS";
 
-export const postTurno = (razon, tiempoEntrada, sede, celular, nombre, apellido) =>{
+export const postTurno = (razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste) =>{
     return async (dispatch) =>{
         await axios.post(
             '/turno',
-            {razon, tiempoEntrada, sede, celular, nombre, apellido}
+            {razon, tiempoEntrada, sede, celular, nombre, apellido,comoNosConociste}
         );
 
     }
