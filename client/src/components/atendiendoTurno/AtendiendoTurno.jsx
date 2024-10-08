@@ -39,7 +39,7 @@ const AtendiendoTurno = () => {
 
 
 
-    await dispatch(putTurno(id, undefined, tiempoSalida, tokenData.info.id));
+    await dispatch(putTurno(id, null, tiempoSalida, tokenData.info.id));
     navigate("/pendientes");
   }
   return (
