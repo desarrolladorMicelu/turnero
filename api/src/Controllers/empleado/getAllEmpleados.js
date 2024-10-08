@@ -1,7 +1,4 @@
-const { conn2 } = require('../../db');
-const Empleado = conn2.models.Empleado;
-
-
+const {Empleado} = require('../../db');
 const bcrypt = require('bcryptjs'); 
 const postAdmin = require('./postAdmin');
 
