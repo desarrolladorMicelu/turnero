@@ -10,14 +10,12 @@ const getAllTurnos = async()=>{
 
     for (let index = 0; index < turnos.length; index++) {
         let empleado = {nombre:'null'};
-        let cliente = {nombre:'null'};
         const element = turnos[index];
-        if(element.clienteID){
-            cliente = await getClienteByID(element.clienteID);
-        }
+        const cliente = await getClienteByID(element.clienteID);
         if(element.empleadoID){
             empleado = await getEmpleadoByID(element.empleadoID);
         }
+
         turnosRenderizados.push(
             {
                 sede: element.sede,
