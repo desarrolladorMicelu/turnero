@@ -12,7 +12,10 @@ const TurnoPendiente = ({ id, nombre, razon, celular, comoNosConociste, orderNum
   const handleAtender = async () => {
     const hora = new Date();
     const tokenData = await dispatch(verificarToken(localStorage.getItem('token')));
-    dispatch(putTurno(id, hora, tokenData.info.id));
+
+    console.log(tokenData);
+    
+    await dispatch(putTurno(id, hora, null,tokenData.info.id));
     navigate("/atendiendo", {
       state: {
         id: id,
@@ -22,6 +25,7 @@ const TurnoPendiente = ({ id, nombre, razon, celular, comoNosConociste, orderNum
         comoNosConociste
       }
     });
+
   }
 
   return (

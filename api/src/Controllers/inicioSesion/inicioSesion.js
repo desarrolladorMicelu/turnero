@@ -1,13 +1,16 @@
 const getEmpleadoByName = require("../empleado/getEmpleadoByName");
 const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
-const { jwtPass} = process.env;
+require("dotenv").config();
+const { jwtPass } = process.env;
+
+
 
 
 const inicioSesion = async(nombre, password)=>{
 
     const empleado = await getEmpleadoByName(nombre);
-
+    
 
     if(empleado && bcrypt.compareSync(password, empleado.password)){
         const token = jwt.sign({

@@ -4,17 +4,17 @@ const fs = require("fs");
 const path = require("path");
 const { DB_URL, DB_USER, DB_PASSWORD, DB_HOST} = process.env;
 
-const sequelize = new Sequelize(DB_URL, {
-  logging: false,
-  native: false,
-});
-// const sequelize = new Sequelize(
-//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/MiCelu`,
-//   {
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//   }
-// ); 
+// const sequelize = new Sequelize(DB_URL, {
+//   logging: false, 
+//   native: false,
+// });
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/MiCelu2`,
+  {
+    logging: false, // set to console.log to see the raw SQL queries
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  }
+); 
 
 
 
@@ -63,7 +63,7 @@ const {Turno, Cliente, Empleado} = sequelize.models;
 
 Turno.belongsTo(Empleado, {
   foreignKey: 'empleadoID', // nombre del campo de clave foránea en la tabla de Turnos
-  as: 'empleado', // nombre de la propiedad para acceder al cliente asociado
+  as: 'empleado', // nombre de la propiedad para acceder al empleado asociado
 });
 
 

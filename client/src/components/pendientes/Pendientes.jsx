@@ -22,7 +22,7 @@ const Pendientes = () => {
   const [sede, setSede] = useState('');
   const navigate = useNavigate();
   const [pendientes, setPendientes] = useState([]);
-  const [, setJefe] = useState(false);
+  const [jefe, setJefe] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {

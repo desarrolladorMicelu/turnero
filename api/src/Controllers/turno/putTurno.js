@@ -12,7 +12,7 @@ const putTurno = async(tiempoAtencion, tiempoSalida, id, empleado)=>{
     }
     else{
         turnoActualizado = await Turno.update(
-            {tiempoAtencion: tiempoAtencion, atendido: true},
+            {tiempoAtencion: tiempoAtencion, atendido: true, empleadoID: empleado},
             {where: {id:id}}
             
         )
@@ -20,6 +20,7 @@ const putTurno = async(tiempoAtencion, tiempoSalida, id, empleado)=>{
         const empleado1 = await Empleado.findByPk(empleado);
 
         await turno.setEmpleado(empleado1);
+        await turno.save();
     }
 
     return turnoActualizado;
