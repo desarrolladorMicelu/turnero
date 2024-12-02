@@ -5,7 +5,7 @@ import imagenLogo from '../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import {BiCreditCard,} from 'react-icons/bi';
 import {Icon} from '@chakra-ui/react'
-import { FaHandsHelping, FaUserShield ,} from 'react-icons/fa';
+import { FaHandsHelping, FaUserShield ,FaHandHolding} from 'react-icons/fa';
 import { BsFillWrenchAdjustableCircleFill } from 'react-icons/bs';
 
 const TipoTurno = () => {
@@ -60,6 +60,15 @@ const TipoTurno = () => {
         <span>SERVICIO TÉCNICO</span>
       </button>
     </div>
+    
+    <div className="mb-2">
+      <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
+              onClick={() => {redirectDatos("ENTREGA EQUIPOS")}}>
+        <Icon as={FaHandHolding} boxSize={7} />
+        <span>ENTREGA EQUIPOS</span>
+      </button>
+    </div>
+    
 
     <div className="col-xs-8 p-4"></div>
 
