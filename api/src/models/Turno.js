@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
       },
       razon: {
         type: DataTypes.ENUM,
-        values: ['ASESORIA Y VENTA', 'GARANTIA', 'SERVICIO TECNICO', 'CREDITO','ENTREGA EQUIPOS'],
+        values: ['ASESORIA Y VENTA', 'GARANTIA', 'SERVICIO TECNICO', 'CREDITO','RECOGE TU COMPRA'],
         allowNull: false,
       },
       tiempoEntrada: {
