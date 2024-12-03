@@ -63,9 +63,9 @@ const TipoTurno = () => {
     
     <div className="mb-2">
       <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
-              onClick={() => {redirectDatos("ENTREGA EQUIPOS")}}>
+              onClick={() => {redirectDatos("RECOGE TU COMPRA")}}>
         <Icon as={FaHandHolding} boxSize={7} />
-        <span>ENTREGA EQUIPOS</span>
+        <span>RECOGE TU COMPRA</span>
       </button>
     </div>
     

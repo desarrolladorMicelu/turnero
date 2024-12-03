@@ -15,7 +15,7 @@ const reasonOrder = [
   "Garantía",
   "Crédito",
   "Servicio Técnico",
-  "Entrega Equipos"
+  "Recoge Tu Compra"
 ];
 
 const Pendientes = () => {
