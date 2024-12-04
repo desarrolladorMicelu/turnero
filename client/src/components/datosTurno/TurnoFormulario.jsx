@@ -140,26 +140,25 @@ function TurnoFormulario() {
               <Icon as={BiHelpCircle} boxSize={4}/> ¿Cómo nos conociste?
               </label>
               <Select
-              type="string"
-              className='form-control'
-              bg="white"
-              placeholder="Seleccione Una Opción"
-              id="comoNosConociste"
-              required
-              onChange={(e) => setComoNosConociste(e.target.value)}
-              value={comoNosConociste}
->
-            {[
-              <option value="instagram" key="instagram">Instagram</option>,
-              <option value="tiktok" key="tiktok">TikTok</option>,
-              <option value="publicidad" key="publicidad">Publicidad</option>,
-              <option value="web" key="web">Pagina Web</option>,
-              <option value="market" key="market">MarketPlace</option>,
-              <option value="presencial" key="presencial">Presencial</option>,
-              <option value="recompra" key="recompra">ReCompra</option>,
-              <option value="referidos" key="referidos">Referidos</option>,
-              <option value="otros" key="otros">Otros</option>
-              ].sort(() => Math.random() - 0.5)}
+                type="string"
+                className='form-control'
+                bg="white"
+                placeholder="Seleccione Una Opción"
+                id="comoNosConociste"
+                required
+                onChange={(e) => setComoNosConociste(e.target.value)}
+                value={comoNosConociste}
+              >
+                <option value="instagram">Instagram</option>
+                <option value="tiktok">TikTok</option>
+                <option value="publicidad">Publicidad</option>
+                <option value="web">Pagina Web</option>
+                <option value="market">MarketPlace</option>
+                <option value="presencial">Presencial</option>
+                <option value="recompra">ReCompra</option>
+                <option value="referidos">Referidos</option>
+                <option value="otros">Otros</option>
+                
               </Select>
             </div>
             <div className="mb-3">
