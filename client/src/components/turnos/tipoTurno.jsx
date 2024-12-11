@@ -36,6 +36,15 @@ const TipoTurno = () => {
         </div>
 
     <div className="mb-2 row">
+    <div className="col"></div>
+      <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
+              onClick={() => {redirectDatos("RECOGE TU COMPRA")}}>
+        <Icon as={FaHandHolding} boxSize={7} />
+        <span>RECOGE TU COMPRA</span>
+      </button>
+    </div>
+
+    <div className="mb-2 ">
       <div className="col"></div>
       <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
               onClick={() => {redirectDatos("CREDITO")}}>
@@ -44,7 +53,8 @@ const TipoTurno = () => {
       </button>
     </div>
 
-    <div className="mb-2">
+    <div className="mb-2 row">
+    <div className="col"></div>
       <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
               onClick={() => {redirectDatos("GARANTIA")}}>
         <Icon as={FaUserShield} boxSize={7} />
@@ -52,7 +62,7 @@ const TipoTurno = () => {
       </button>
     </div>
 
-    <div className="mb-2 row">
+    <div className="mb-2">
       <div className="col"></div>
       <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
               onClick={() => {redirectDatos("SERVICIO TECNICO")}}>
@@ -61,13 +71,7 @@ const TipoTurno = () => {
       </button>
     </div>
     
-    <div className="mb-2">
-      <button className={`${styles.boton} col-8 btn btn-lg justify-content-between`}
-              onClick={() => {redirectDatos("RECOGE TU COMPRA")}}>
-        <Icon as={FaHandHolding} boxSize={7} />
-        <span>RECOGE TU COMPRA</span>
-      </button>
-    </div>
+    
     
 
     <div className="col-xs-8 p-4"></div>

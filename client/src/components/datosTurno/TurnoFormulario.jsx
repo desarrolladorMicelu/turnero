@@ -149,17 +149,10 @@ function TurnoFormulario() {
                 onChange={(e) => setComoNosConociste(e.target.value)}
                 value={comoNosConociste}
               >
-                <option value="instagram">Instagram</option>
-                <option value="tiktok">TikTok</option>
-                <option value="publicidad">Publicidad</option>
-                <option value="web">Pagina Web</option>
-                <option value="market">MarketPlace</option>
-                <option value="presencial">Presencial</option>
-                <option value="recompra">ReCompra</option>
-                <option value="referidos">Referidos</option>
-                <option value="otros">Otros</option>
-                
-              </Select>
+               {["Instagram", "Tiktok", "Publicidad", "Web", "Market", "Presencial", "Recompra", "Referidos", "Otros"].sort(() => Math.random() - 0.5).map(option => (
+               <option key={option} value={option}>{option}</option>
+                 ))}
+                </Select>
             </div>
             <div className="mb-3">
               <input
